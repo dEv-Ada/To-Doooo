@@ -1,0 +1,10 @@
+.loginMain{
+    background-color: lightcyan;
+    height: 91vh;
+}
+
+.login-container{
+    position: absolute;
+    top: 25%;
+    left: 10%
+}

@@ -1,0 +1,13 @@
+.left-bar{
+    background-color: coral;
+    color: black;
+    height: 91vh;
+}
+
+.left-card{
+    margin: 17px !important;
+    background-color: white;
+    width: 80%;
+    color: black;
+
+}

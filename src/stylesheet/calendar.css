@@ -1,0 +1,20 @@
+.calendar{
+    margin: 17px;
+    margin-left: 16%;
+}
+
+.taskList{
+    height: 25vh;
+    overflow: auto;
+}
+
+.taskCard{
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.taskIcon{
+    position: absolute;
+    top: 40%;
+    right: 0%;
+}
