@@ -1,0 +1,10 @@
+.task-header{
+    background-color: #E6811f;
+}
+
+.type-item{
+   position:relative;
+   right:8%;
+   background:white;
+   top: 15px;
+}

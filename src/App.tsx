@@ -4,17 +4,20 @@ import "./stylesheet/leftBar.css";
 import "./stylesheet/calendar.css";
 import "./stylesheet/todo.css";
 import "./stylesheet/login.css";
+import "./stylesheet/task.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToDoHeader } from "./components/header/header";
-import { Route, Routes } from "react-router-dom";
 import { TodoDashboard } from "./components/dashboard/dashboard";
 import ErrorPage from "./utils/common/error-page/errorPage";
 import { ToDoLogin } from "./components/login/login";
+import { AllTaskList } from "./components/task/allTaskList";
+import { Col, Row } from "react-bootstrap";
+import { ToDoLeftbar } from "./components/left bar/leftBar";
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/home",
+      path: "/",
       element: <TodoDashboard />,
       errorElement: <ErrorPage />,
     },
@@ -23,11 +26,21 @@ function App() {
       element: <ToDoLogin />,
       errorElement: <ErrorPage />,
     },
+    {
+      path: "/tasks",
+      element: <AllTaskList />,
+      errorElement: <ErrorPage />,
+    },
   ]);
   return (
     <div className="App">
       <ToDoHeader />
-      <RouterProvider router={router} />
+      <Row className="mainRow">
+        <Col lg={3} md={3} sm={3}>
+          <ToDoLeftbar />
+        </Col>
+        <RouterProvider router={router} />
+      </Row>
     </div>
   );
 }

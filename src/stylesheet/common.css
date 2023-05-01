@@ -6,8 +6,26 @@
     color:skyblue
 }
 
+.gry-color{
+  color: grey
+}
+
+.lgry-color{
+  color:lightgray
+}
+
 .pointer{
     cursor: pointer
+}
+
+.font-smlr{
+  font-size: smaller;
+}
+
+.btn-crl{
+  background-color: #E6811f;
+  color:black;
+  border-color: #E6811f;
 }
 
 ::-webkit-scrollbar {
@@ -27,5 +45,9 @@
   
 
   ::-webkit-scrollbar-thumb:hover {
-    background: coral; 
+    background: #E6811f; 
+  }
+
+  .w-0{
+    width: 0%;
   }

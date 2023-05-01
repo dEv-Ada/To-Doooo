@@ -9,7 +9,7 @@ export const ToDoHeader = () => {
     <div>
       <Navbar expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand>{CommonConst.BRAND_NAME}</Navbar.Brand>
+          <Navbar.Brand href="/">{CommonConst.BRAND_NAME}</Navbar.Brand>
           <Navbar.Toggle />
         </Container>
         <Navbar.Collapse className="justify-content-end">
