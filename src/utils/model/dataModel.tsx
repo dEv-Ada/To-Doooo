@@ -5,3 +5,15 @@ export interface TaskList {
   time: string;
   type: string;
 }
+
+export interface TodoList {
+  id: number;
+  name: string;
+  type: string;
+}
+
+export interface DragItem {
+  index: number;
+  id: string;
+  type: string;
+}

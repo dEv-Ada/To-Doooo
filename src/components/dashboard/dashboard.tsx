@@ -3,6 +3,8 @@ import { Row, Col } from "react-bootstrap";
 import { ToDoList } from "../todo/todoList";
 import { ToDoCalendarTask } from "../calender/calendarTask";
 import { ToDoFooter } from "../footer/footer";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 export const TodoDashboard = () => {
   return (
@@ -10,7 +12,9 @@ export const TodoDashboard = () => {
       <Col lg={9} md={9} sm={9}>
         <Row className="listRow">
           <Col className="listCol">
-            <ToDoList />
+            <DndProvider backend={HTML5Backend}>
+              <ToDoList />
+            </DndProvider>
           </Col>
           <Col>
             <ToDoCalendarTask />

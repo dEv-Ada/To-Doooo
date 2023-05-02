@@ -6,6 +6,10 @@
     color:skyblue
 }
 
+.drkblu-color{
+  color: #0d6efd;
+}
+
 .gry-color{
   color: grey
 }
@@ -50,4 +54,9 @@
 
   .w-0{
     width: 0%;
+  }
+
+  .drag-elm{
+    background-color:white;
+    cursor: move;
   }

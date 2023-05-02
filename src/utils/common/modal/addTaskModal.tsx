@@ -12,6 +12,10 @@ import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 import moment from "moment";
 
+const yesterday = moment().subtract(1, "day");
+const valid = function (current: any) {
+  return current.isAfter(yesterday);
+};
 export const AddTaskModal = ({
   show,
   handleClose,
@@ -19,9 +23,11 @@ export const AddTaskModal = ({
   show: boolean;
   handleClose: any;
 }) => {
-  var yesterday = moment().subtract(1, "day");
-  var valid = function (current: any) {
-    return current.isAfter(yesterday);
+  const [eventType, setEventType] = useState<string>("");
+  const handleEvent = (e) => {
+    if (e.target.checked) {
+      setEventType(e.target.id);
+    }
   };
   return (
     <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
@@ -32,45 +38,85 @@ export const AddTaskModal = ({
         <div>
           <span>{CommonConst.EVENT_TYPE + " :"}</span>
           <span key={`inline-$"radio"`} className="ms-3">
-            <Form.Check inline name="group1" type="radio" id="anniversary" />
-            <label className="type-item">
+            <Form.Check
+              inline
+              name="group1"
+              type="radio"
+              id={CommonConst.EVENT}
+              onChange={(e) => handleEvent(e)}
+            />
+            <label className="type-item" htmlFor={CommonConst.EVENT}>
               <FontAwesomeIcon
                 icon={faCalendarCheck}
                 size="xl"
-                className="lgry-color ps-1"
+                className={
+                  eventType === CommonConst.EVENT
+                    ? "drkblu-color ps-1"
+                    : "lgry-color ps-1"
+                }
               />
               <div className="text-muted font-smlr text-center">
                 {CommonConst.EVENT}
               </div>
             </label>
-            <Form.Check inline name="group1" type="radio" id="anniversary" />
-            <label className="type-item">
+            <Form.Check
+              inline
+              name="group1"
+              type="radio"
+              id={CommonConst.ANNIVERSARY}
+              onChange={(e) => handleEvent(e)}
+            />
+            <label className="type-item" htmlFor={CommonConst.ANNIVERSARY}>
               <FontAwesomeIcon
                 icon={faHeart}
                 size="xl"
-                className="lgry-color ps-3"
+                className={
+                  eventType === CommonConst.ANNIVERSARY
+                    ? "drkblu-color ps-3"
+                    : "lgry-color ps-3"
+                }
               />
               <div className="text-muted font-smlr text-center">
                 {CommonConst.ANNIVERSARY}
               </div>
             </label>
-            <Form.Check inline name="group1" type="radio" id="metting" />
-            <label className="type-item">
+            <Form.Check
+              inline
+              name="group1"
+              type="radio"
+              id={CommonConst.METTING}
+              onChange={(e) => handleEvent(e)}
+            />
+            <label className="type-item" htmlFor={CommonConst.METTING}>
               <FontAwesomeIcon
                 icon={faStar}
                 size="xl"
-                className="lgry-color ps-2"
+                className={
+                  eventType === CommonConst.METTING
+                    ? "drkblu-color ps-2"
+                    : "lgry-color ps-2"
+                }
               />
               <div className="text-muted font-smlr text-center">
                 {CommonConst.METTING}
               </div>
             </label>
-            <Form.Check inline type="radio" id="birthday" />
-            <label className="type-item">
+            <Form.Check
+              inline
+              name="group1"
+              type="radio"
+              id={CommonConst.BIRTHDAY}
+              onChange={(e) => handleEvent(e)}
+            />
+            <label className="type-item" htmlFor={CommonConst.BIRTHDAY}>
               <FontAwesomeIcon
                 icon={faCakeCandles}
                 size="xl"
-                className="lgry-color ps-3"
+                className={
+                  eventType === CommonConst.BIRTHDAY
+                    ? "drkblu-color ps-3"
+                    : "lgry-color ps-3"
+                }
               />
               <div className="text-muted font-smlr text-center">
                 {CommonConst.BIRTHDAY}
