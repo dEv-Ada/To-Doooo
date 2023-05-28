@@ -3,9 +3,13 @@ import { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { Card, Form } from "react-bootstrap";
 import { DragItem } from "../../utils/model/dataModel";
+import { useAppDispatch } from "../../store/store/store";
+import { removeToDo } from "../../store/feature/ToDoSlice";
 
 export const CardItems = ({ id, text, index, moveCard }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const dispatch = useAppDispatch();
+
   const [{ handlerId }, drop] = useDrop<
     DragItem,
     void,
@@ -54,6 +58,10 @@ export const CardItems = ({ id, text, index, moveCard }) => {
 
   const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
+
+  const handleChange = () => {
+    dispatch(removeToDo({ id: id }));
+  };
   return (
     <div
       ref={ref}
@@ -67,7 +75,8 @@ export const CardItems = ({ id, text, index, moveCard }) => {
             inline
             name="group1"
             type="checkbox"
-            id={index.toString()}
+            id={index}
+            onChange={handleChange}
           />
           <span>{text} </span>
         </Card.Body>

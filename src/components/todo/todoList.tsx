@@ -1,54 +1,12 @@
 import React, { useCallback, useState } from "react";
 import { CommonConst } from "../../utils/common/const/commonConst";
-// import { Card, Form } from "react-bootstrap";
 import { TodoList } from "../../utils/model/dataModel";
 import update from "immutability-helper";
 import { CardItems } from "./card";
-
-const todoList: TodoList[] = [
-  {
-    id: 1,
-    name: "To do 1",
-    type: "not complete",
-  },
-  {
-    id: 2,
-    name: "To do 2",
-    type: "not complete",
-  },
-  {
-    id: 3,
-    name: "To do 3",
-    type: "not complete",
-  },
-  {
-    id: 4,
-    name: "To do 4",
-    type: "not complete",
-  },
-  {
-    id: 5,
-    name: "To do 5",
-    type: "not complete",
-  },
-  {
-    id: 6,
-    name: "To do 6",
-    type: "not complete",
-  },
-  {
-    id: 7,
-    name: "To do 7",
-    type: "not complete",
-  },
-  {
-    id: 8,
-    name: "To do 8",
-    type: "not complete",
-  },
-];
+import { useAppSelector } from "../../store/store/store";
 
 export const ToDoList = () => {
+  const todoList = useAppSelector((state) => state.todo.todos);
   const [todo, setTask] = useState(todoList);
 
   const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
@@ -81,7 +39,7 @@ export const ToDoList = () => {
     <div className="mt-2">
       <h5>{CommonConst.TO_DOS}</h5>
       <div className="todoList">
-        {todo.map((item, i) => renderCard(item, i))}
+        {todoList && todoList.map((item, i) => renderCard(item, i))}
       </div>
     </div>
   );
